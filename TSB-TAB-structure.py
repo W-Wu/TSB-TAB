@@ -98,7 +98,7 @@ class SelfAttentiveLayer(nn.Module):
         self.ws2.weight.data.uniform_(-init_range, init_range)
 
     def forward(self, x):
-        # [bsz, len, nhid]
+        # [batch_sz, seq_len, hid_dim]
         # 200,100,128
         H=x
         A = self.tanh(self.ws1(x))    #200*100*128 * 128*128 = 200*100*128
@@ -137,7 +137,7 @@ class Time_sync(nn.Module):
 
         
     def forward(self,x):
-        #[batch_size, sequence_length, input_dim]
+        #[batch_sz, seq_len, hid_dim]
         # 200,118,500
         x=F.relu(self.fc1(x))
         x=self.ResLayer1(x)
