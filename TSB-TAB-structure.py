@@ -16,7 +16,7 @@ class ResBlock(nn.Module):
     def __init__(self, dim=512):
         super(ResBlock, self).__init__()
         self.fc1 = nn.Linear(dim,dim)
-        self.fc2 = nn.Linear(dim,dim)# has bias
+        self.fc2 = nn.Linear(dim,dim)
         self.bias = nn.Parameter(torch.ones(dim))
         self.dropout = nn.Dropout(p=0.5)
         
@@ -31,7 +31,7 @@ class ResBlock(nn.Module):
 class TDNN(nn.Module):
     def __init__(self, context, input_dim=512, output_dim=512, full_context = False):
         """
-        https://github.com/SiddGururani/Pytorch-TDNN
+        Modified from https://github.com/SiddGururani/Pytorch-TDNN
         """
         super(TDNN,self).__init__()
         self.input_dim = input_dim
@@ -195,7 +195,7 @@ class Fusion(nn.Module):
         return out,A1,A2
 
     
-
+# Newbob scheduler
 class newbob():
     def __init__(self, optimizer, factor, model):
         self.optimizer = optimizer
