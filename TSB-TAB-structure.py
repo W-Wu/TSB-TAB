@@ -66,7 +66,6 @@ class TDNN(nn.Module):
     
     @staticmethod
     def check_valid_context(context):
-        # here context is still a list
         assert context[0] <= context[-1], 'Input tensor dimensionality is incorrect. Should be a 3D tensor'
 
     @staticmethod
